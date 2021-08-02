@@ -61,7 +61,7 @@ app.get('/weather', (req, res) =>
             }
             else
             {
-                forecast(lat, long, (error, {description, temperature, feelslike} = {}) => {
+                forecast(lat, long, (error, {description, temperature, feelslike, image} = {}) => {
                     if (error)
                     {
                         res.send({error});
@@ -72,7 +72,8 @@ app.get('/weather', (req, res) =>
                             location: loc,
                             weather: description,
                             temperature,
-                            feelslike
+                            feelslike,
+                            image
                         });
                     }
                 });

@@ -4,6 +4,7 @@ const messageOne = document.querySelector('#message-1');
 const messageTwo = document.querySelector('#message-2');
 const messageThree = document.querySelector('#message-3');
 const messageFour = document.querySelector('#message-4');
+const weatherIcon = document.querySelector('#weather-icon');
 
 weatherForm.addEventListener('submit', (e) =>
 {
@@ -11,6 +12,7 @@ weatherForm.addEventListener('submit', (e) =>
     const location = search.value;
     console.log(location);
 
+    weatherIcon.src = '';
     messageOne.textContent = 'Loading...';
     messageTwo.textContent = '';
     messageThree.textContent = '';
@@ -26,6 +28,7 @@ weatherForm.addEventListener('submit', (e) =>
             }
             else
             {
+                weatherIcon.src = data.image;
                 messageOne.textContent = 'Location: ' + data.location;
                 messageTwo.textContent = 'Current conditions: ' + data.weather;
                 messageThree.textContent = 'Temperature: ' + data.temperature + ' degrees';
