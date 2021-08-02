@@ -2,7 +2,6 @@ const path = require('path');
 
 const express = require('express');
 const hbs = require('hbs');
-const chalk = require('chalk');
 
 const geocode = require('./utils/geocode.js');
 const forecast = require('./utils/forecast.js')
