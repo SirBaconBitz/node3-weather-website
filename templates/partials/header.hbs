@@ -1,5 +1,21 @@
 <header>
+    <style>
+        .dark-mode {
+            background-color: #333333;
+            color: white;
+        }
+    </style>
+
     <h1>{{title}}</h1>
+
+    <button onclick="toggleDarkMode()">Toggle dark mode</button><br><br>
+
+    <script>
+        function toggleDarkMode() {
+            let element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
 
     <a href="/">Weather</a>
     <a href="/about">About</a>
