@@ -6,6 +6,26 @@ const messageThree = document.querySelector('#message-3');
 const messageFour = document.querySelector('#message-4');
 const weatherIcon = document.querySelector('#weather-icon');
 
+let defaultAddress = localStorage.getItem('address');
+
+if(defaultAddress !== null)
+{
+    fetch('/weather?address=' + defaultAddress).then((response) =>
+    {
+        response.json().then((data) =>
+        {
+            if(!data.error)
+            {
+                weatherIcon.src = data.image;
+                messageOne.textContent = 'Location: ' + data.location;
+                messageTwo.textContent = 'Current conditions: ' + data.weather;
+                messageThree.textContent = 'Temperature: ' + data.temperature + ' degrees';
+                messageFour.textContent = 'Perceived temperature: ' + data.feelslike + ' degrees';
+            }
+        });
+    });
+}
+
 weatherForm.addEventListener('submit', (e) =>
 {
     e.preventDefault();
@@ -33,6 +53,7 @@ weatherForm.addEventListener('submit', (e) =>
                 messageTwo.textContent = 'Current conditions: ' + data.weather;
                 messageThree.textContent = 'Temperature: ' + data.temperature + ' degrees';
                 messageFour.textContent = 'Perceived temperature: ' + data.feelslike + ' degrees';
+                localStorage.setItem('address', location);
             }
         });
     });

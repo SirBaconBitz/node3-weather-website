@@ -4,6 +4,31 @@
             background-color: #333333;
             color: white;
         }
+
+        .topnav {
+            overflow: hidden;
+        }
+
+        .topnav a {
+            float: left;
+            background-color: darkorange;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            width: 184px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: grey;
+            color: white;
+        }
     </style>
 
     <h1>{{title}}</h1>
@@ -41,7 +66,9 @@
         }
     </script>
 
-    <a href="/">Weather</a>
-    <a href="/about">About</a>
-    <a href="/help">Help</a>
+    <div class="topnav">
+        <a href="/">Weather</a>
+        <a href="/about">About</a>
+        <a href="/help">Help</a>
+    </div>
 </header>
